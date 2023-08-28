@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(){
+	int n;
+		cin >> n;
+		string s;
+		cin >> s;
+		
+		if(n%3 == 1){
+			cout << "yes" << endl;
+			return ;
+		}
+		int mp[26] = {0};
+		for(int i = 0; i < n; i+=3){
+			mp[s[i] - 'a']++;			
+			if(mp[s[i] - 'a'] >= 2){
+				cout << "yes\n";
+				return;
+			}
+		
+	}
+	for(int i=0;i<n;i++){
+		if(s[i]==s[i+1] and (i%3)==0 and ((n-i-2)%3)==0){
+			cout << "yes\n";
+			return;
+		}
+		if(s[i]==s[i+2] and (i%3)==0 and ((n-i-3)%3)==0){
+			cout << "yes\n"	;
+			return;
+		}
+	}
+	
+	cout << "no\n";
+}
+
+int main(){
+	int t;
+	cin >> t;
+	while(t--){
+		solve();
+	}
+}
